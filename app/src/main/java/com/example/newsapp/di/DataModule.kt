@@ -5,6 +5,9 @@ import androidx.room.Room
 import com.example.newsapp.data.local.NewsDao
 import com.example.newsapp.data.local.NewsDatabase
 import com.example.newsapp.data.remote.NewsApiService
+import com.example.newsapp.data.repository.NewsRepositoryImpl
+import com.example.newsapp.domain.repository.NewsRepository
+import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -22,9 +25,9 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 interface DataModule {
 
-//    @Binds
-//    @Singleton
-//    fun bindNotesRepository(impl: NewsRepositoryImpl): NewsRepository
+    @Binds
+    @Singleton
+    fun bindNewsRepository(impl: NewsRepositoryImpl): NewsRepository
 
     companion object {
 
@@ -50,7 +53,7 @@ interface DataModule {
                 .baseUrl("https://newsapi.org/")
                 .addConverterFactory(converterFactory)
                 .build()
-            return retrofit.create()
+            return retrofit
         }
 
         @Singleton
