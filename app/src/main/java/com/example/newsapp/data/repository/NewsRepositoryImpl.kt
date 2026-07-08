@@ -18,7 +18,8 @@ import java.util.concurrent.CancellationException
 import javax.inject.Inject
 
 class NewsRepositoryImpl @Inject constructor(
-    private val newsDao: NewsDao, private val newsApiService: NewsApiService
+    private val newsDao: NewsDao,
+    private val newsApiService: NewsApiService
 ) : NewsRepository {
 
     override fun getAllSubscriptions(): Flow<List<String>> {
