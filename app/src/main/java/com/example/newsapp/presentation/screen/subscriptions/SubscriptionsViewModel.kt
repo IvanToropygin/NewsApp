@@ -39,6 +39,7 @@ class SubscriptionsViewModel @Inject constructor(
 
     init {
         observeSubscriptions()
+        observeSelectedTopics()
     }
 
     fun processCommand(command: SubscriptionsCommand) {
@@ -90,9 +91,8 @@ class SubscriptionsViewModel @Inject constructor(
     }
 
     private fun observeSelectedTopics() {
-        state.map {
-            it.selectedTopics
-        }.distinctUntilChanged()
+        state.map { it.selectedTopics }
+            .distinctUntilChanged()
             .flatMapLatest {
                 getArticlesByTopicsUseCase(it)
             }

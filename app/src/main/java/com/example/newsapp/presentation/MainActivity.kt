@@ -4,17 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
-import com.example.newsapp.domain.repository.NewsRepository
 import com.example.newsapp.presentation.screen.subscriptions.SubscriptionsScreen
 import com.example.newsapp.presentation.ui.theme.NewsAppTheme
 import dagger.hilt.android.AndroidEntryPoint
-import javax.inject.Inject
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
-
-    @Inject
-    lateinit var repository: NewsRepository
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,7 +17,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             NewsAppTheme {
                 SubscriptionsScreen(
-                    onNavigateToSettings = {}
+                    onNavigateToSettings = {
+
+                    }
                 )
             }
         }
