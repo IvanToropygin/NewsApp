@@ -7,7 +7,9 @@ import com.example.newsapp.data.local.NewsDao
 import com.example.newsapp.data.local.NewsDatabase
 import com.example.newsapp.data.remote.NewsApiService
 import com.example.newsapp.data.repository.NewsRepositoryImpl
+import com.example.newsapp.data.repository.SettingsRepositoryImpl
 import com.example.newsapp.domain.repository.NewsRepository
+import com.example.newsapp.domain.repository.SettingsRepository
 import dagger.Binds
 import dagger.Module
 import dagger.Provides
@@ -29,6 +31,10 @@ interface DataModule {
     @Binds
     @Singleton
     fun bindNewsRepository(impl: NewsRepositoryImpl): NewsRepository
+
+    @Binds
+    @Singleton
+    fun bindSettingsRepository(impl: SettingsRepositoryImpl): SettingsRepository
 
     companion object {
 

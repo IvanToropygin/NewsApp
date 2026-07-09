@@ -1,4 +1,4 @@
-package com.example.newsapp.domain.usecase
+package com.example.newsapp.domain.usecase.news
 
 import com.example.newsapp.domain.repository.NewsRepository
 import kotlinx.coroutines.CoroutineScope

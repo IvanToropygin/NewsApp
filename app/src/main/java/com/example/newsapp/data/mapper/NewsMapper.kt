@@ -3,6 +3,7 @@ package com.example.newsapp.data.mapper
 import com.example.newsapp.data.local.ArticleDbModel
 import com.example.newsapp.data.remote.NewsResponseDto
 import com.example.newsapp.domain.entity.Article
+import com.example.newsapp.domain.entity.Interval
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -36,4 +37,8 @@ fun List<ArticleDbModel>.toEntities(): List<Article> {
 private fun String.toTimestamp(): Long {
     val dateFormatter = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'", Locale.getDefault())
     return dateFormatter.parse(this)?.time ?: System.currentTimeMillis()
+}
+
+fun Int.toInterval(): Interval {
+    return Interval.entries.first { it.minutes == this }
 }
