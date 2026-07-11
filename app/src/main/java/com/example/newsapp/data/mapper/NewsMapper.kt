@@ -4,6 +4,7 @@ import com.example.newsapp.data.local.ArticleDbModel
 import com.example.newsapp.data.remote.NewsResponseDto
 import com.example.newsapp.domain.entity.Article
 import com.example.newsapp.domain.entity.Interval
+import com.example.newsapp.domain.entity.Language
 import java.text.SimpleDateFormat
 import java.util.Locale
 
@@ -41,4 +42,13 @@ private fun String.toTimestamp(): Long {
 
 fun Int.toInterval(): Interval {
     return Interval.entries.first { it.minutes == this }
+}
+
+fun Language.toQueryParam(): String {
+    return when (this) {
+        Language.ENGLISH -> "en"
+        Language.RUSSIAN -> "ru"
+        Language.FRENCH -> "fr"
+        Language.GERMAN -> "de"
+    }
 }

@@ -3,6 +3,7 @@ package com.example.newsapp
 import android.app.Application
 import androidx.hilt.work.HiltWorkerFactory
 import androidx.work.Configuration
+import com.example.newsapp.presentation.startup.AppStartupManager
 import dagger.hilt.android.HiltAndroidApp
 import javax.inject.Inject
 
@@ -16,4 +17,12 @@ class NewsApp : Application(), Configuration.Provider {
         get() = Configuration.Builder()
             .setWorkerFactory(workerFactory)
             .build()
+
+    @Inject
+    lateinit var appStartupManager: AppStartupManager
+
+    override fun onCreate() {
+        super.onCreate()
+        appStartupManager.startRefreshData()
+    }
 }

@@ -12,11 +12,6 @@ import com.example.newsapp.data.mapper.toInterval
 import com.example.newsapp.domain.entity.Language
 import com.example.newsapp.domain.entity.Settings
 import com.example.newsapp.domain.repository.SettingsRepository
-import com.example.newsapp.domain.usecase.settings.GetSettingsUseCase
-import com.example.newsapp.domain.usecase.settings.UpdateIntervalUseCase
-import com.example.newsapp.domain.usecase.settings.UpdateLanguageUseCase
-import com.example.newsapp.domain.usecase.settings.UpdateNotificationsEnabledUseCase
-import com.example.newsapp.domain.usecase.settings.UpdateWifiOnlyUseCase
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.map
@@ -25,11 +20,6 @@ import javax.inject.Inject
 val Context.dataStore: DataStore<Preferences> by preferencesDataStore(name = "settings")
 
 class SettingsRepositoryImpl @Inject constructor(
-    private val getSettingsUseCase: GetSettingsUseCase,
-    private val updateIntervalUseCase: UpdateIntervalUseCase,
-    private val updateLanguageUseCase: UpdateLanguageUseCase,
-    private val updateNotificationsEnabledUseCase: UpdateNotificationsEnabledUseCase,
-    private val updateWifiOnlyUseCase: UpdateWifiOnlyUseCase,
     @param:ApplicationContext private val context: Context
 ) : SettingsRepository {
 

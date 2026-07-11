@@ -10,7 +10,7 @@ import com.example.newsapp.domain.usecase.news.ClearAllArticlesUseCase
 import com.example.newsapp.domain.usecase.news.GetAllSubscriptionsUseCase
 import com.example.newsapp.domain.usecase.news.GetArticlesByTopicsUseCase
 import com.example.newsapp.domain.usecase.news.RemoveSubscriptionsUseCase
-import com.example.newsapp.domain.usecase.news.UpdateSubscribedArticleUseCase
+import com.example.newsapp.domain.usecase.news.UpdateSubscribedArticlesUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -31,7 +31,7 @@ class SubscriptionsViewModel @Inject constructor(
     private val getAllSubscriptionsUseCase: GetAllSubscriptionsUseCase,
     private val getArticlesByTopicsUseCase: GetArticlesByTopicsUseCase,
     private val removeSubscriptionsUseCase: RemoveSubscriptionsUseCase,
-    private val updateSubscribedArticleUseCase: UpdateSubscribedArticleUseCase
+    private val updateSubscribedArticlesUseCase: UpdateSubscribedArticlesUseCase
 ) : ViewModel() {
 
     private val _state = MutableStateFlow(SubscriptionState())
@@ -69,7 +69,7 @@ class SubscriptionsViewModel @Inject constructor(
 
             SubscriptionsCommand.RefreshData -> {
                 viewModelScope.launch {
-                    updateSubscribedArticleUseCase()
+                    updateSubscribedArticlesUseCase()
                 }
             }
 
