@@ -28,7 +28,7 @@ class RefreshDataWorker @AssistedInject constructor(
             notificationsHelper.showNewArticlesNotification(updatedTopics)
         }
         Log.d("RefreshDataWorker", "finish")
-        notificationsHelper.showNewArticlesNotification(listOf())
+        notificationsHelper.showNewArticlesNotification(updatedTopics)
         return Result.success()
     }
 }

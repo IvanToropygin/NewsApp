@@ -13,7 +13,7 @@ fun NewsResponseDto.toDbModels(topic: String): List<ArticleDbModel> {
         ArticleDbModel(
             title = it.title,
             description = it.description,
-            imageUrl = it.url,
+            imageUrl = it.urlToImage,
             sourceName = it.sourceDto.name,
             publishedAt = it.publishedAt.toTimestamp(),
             url = it.url,

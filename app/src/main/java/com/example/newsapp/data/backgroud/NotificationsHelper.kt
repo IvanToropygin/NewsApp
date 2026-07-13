@@ -15,8 +15,7 @@ import javax.inject.Inject
 class NotificationsHelper @Inject constructor(
     @param:ApplicationContext private val context: Context
 ) {
-    private val notificationManager =
-        context.getSystemService<NotificationManager>()
+    private val notificationManager = context.getSystemService<NotificationManager>()
 
     init {
         createNotificationChannel()
@@ -34,6 +33,7 @@ class NotificationsHelper @Inject constructor(
     fun showNewArticlesNotification(topics: List<String>) {
         val intent = Intent(context, MainActivity::class.java)
             .apply { flags = Intent.FLAG_ACTIVITY_SINGLE_TOP }
+
         val pendingIntent = PendingIntent.getActivity(
             context,
             PENDING_INTENT_RC,
@@ -47,8 +47,7 @@ class NotificationsHelper @Inject constructor(
             .setContentText(
                 context.getString(
                     R.string.update_subscriptions_notification_text,
-                    topics.size,
-                    topics.joinToString(", ")
+                    topics.size, topics.joinToString(", ")
                 )
             )
             .setContentIntent(pendingIntent)

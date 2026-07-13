@@ -33,7 +33,7 @@
     <string name="_4_hours">4 hours</string>
     <string name="_24_hours">24 hours</string>
     <string name="update_interval">Update interval</string>
-    <string name="hoe_often_to_update_news">Hoe often to update news</string>
+    <string name="how_often_to_update_news">How often to update news</string>
     <string name="notifications_title">Notifications</string>
     <string name="show_notification_about_new_article">Show notification about new article</string>
     <string name="update_only_via_wi_fi">Update only via Wi-Fi</string>
