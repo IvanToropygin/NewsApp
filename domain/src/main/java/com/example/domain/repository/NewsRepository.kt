@@ -22,4 +22,6 @@ interface NewsRepository {
     fun getArticlesByTopics(topics: List<String>): Flow<List<Article>>
 
     suspend fun clearAllArticles(topics: List<String>)
+
+    suspend fun loadTopHeadlines(): List<Article>
 }

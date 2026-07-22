@@ -11,4 +11,8 @@ interface NewsApiService {
         @Query("q") topic: String,
         @Query("language") language: String,
     ): NewsResponseDto
+
+    @GET("v2/top-headlines?country=us&apiKey=${BuildConfig.NEWS_API_KEY}")
+    suspend fun loadTopArticles(
+    ): NewsResponseDto
 }

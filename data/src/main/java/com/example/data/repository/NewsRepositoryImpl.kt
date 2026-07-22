@@ -87,8 +87,20 @@ class NewsRepositoryImpl @Inject constructor(
             if (e is CancellationException) {
                 throw e
             }
-            Log.e("NewsRepository", e.stackTraceToString())
-            listOf()
+            Log.e("NewsRepository", "Error loading subscriptions", e)
+            emptyList()
+        }
+    }
+
+    override suspend fun loadTopHeadlines(): List<Article> {
+        return try {
+            newsApiService.loadTopArticles().toEntities()
+        } catch (e: Exception) {
+            if (e is CancellationException) {
+                throw e
+            }
+            Log.e("NewsRepository", "Error loading top headlines", e)
+            emptyList()
         }
     }
 
