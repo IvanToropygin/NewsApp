@@ -1,6 +1,8 @@
 <resources>
     <string name="app_name">News</string>
     <string name="my_news">My News</string>
+    <string name="to_my_news">To my News</string>
+    <string name="top_headlines">Top Headlines</string>
     <string name="update_articles">Update articles</string>
     <string name="clear_articles">Clear articles</string>
     <string name="remove_subscription">Remove articles</string>
@@ -35,4 +37,8 @@
     <string name="show_notification_about_new_article">Show notification about new article</string>
     <string name="update_only_via_wi_fi">Update only via Wi-Fi</string>
     <string name="save_mobile_network">Save mobile network</string>
+    <string name="loading_articles">Loading articles…</string>
+    <string name="no_articles_found">No articles found</string>
+    <string name="try_refresh">Try refreshing the page</string>
+    <string name="retry">Retry</string>
 </resources>

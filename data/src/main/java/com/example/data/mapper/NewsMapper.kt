@@ -22,6 +22,19 @@ fun NewsResponseDto.toDbModels(topic: String): List<ArticleDbModel> {
     }
 }
 
+fun NewsResponseDto.toEntities(): List<Article> {
+    return articles.map {
+        Article(
+            title = it.title,
+            description = it.description,
+            imageUrl = it.urlToImage,
+            sourceName = it.sourceDto.name,
+            publishedAt = it.publishedAt.toTimestamp(),
+            url = it.url
+        )
+    }
+}
+
 fun List<ArticleDbModel>.toEntities(): List<Article> {
     return map {
         Article(
